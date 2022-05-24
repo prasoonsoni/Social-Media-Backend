@@ -1,0 +1,18 @@
+{
+  "name": "social-media-backend",
+  "version": "1.0.0",
+  "description": "This is the backend for a social media website or app.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Prasoon Soni",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^16.0.1",
+    "express": "^4.18.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.16"
+  }
+}
