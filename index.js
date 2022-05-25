@@ -20,6 +20,7 @@ app.use('/auth/getuser', require('./routes/authentication/getuser'))
 
 // endpoints for updating
 app.use('/update/password', require('./routes/update/updatepassword'))
+app.use('/update/username', require('./routes/update/updateusername'))
 
 
 app.listen(port, () => {
