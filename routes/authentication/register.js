@@ -2,9 +2,8 @@ const express = require('express')
 const router = express.Router()
 const bcrypt = require('bcryptjs')
 const User = require('../../models/User')
-const Friend = require('../../models/Friend')
-const Post = require('../../models/Post')
-
+const Friends = require('../../models/friend/Friends')
+const Posts = require('../../models/post/Posts')
 
 router.post('/', async (req, res) => {
     try {
@@ -36,12 +35,12 @@ router.post('/', async (req, res) => {
         })
 
         // creating empty friends list
-        let friends = await Friend.create({
+        let friends = await Friends.create({
             user: user._id
         })
 
         // creating empty posts list
-        let posts = await Post.create({
+        let posts = await Posts.create({
             user: user._id
         })
 
