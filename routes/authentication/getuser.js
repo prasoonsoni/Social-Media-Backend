@@ -3,7 +3,6 @@ const router = express.Router()
 const fetchuser = require('../../middleware/fetchuser')
 const User = require('../../models/User')
 
-
 router.get('/', fetchuser, async (req, res) => {
     try {
         const user = await User.findOne({ _id: req.user.user_id })
