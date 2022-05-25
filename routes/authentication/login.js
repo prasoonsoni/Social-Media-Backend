@@ -15,7 +15,6 @@ router.post('/', async (req, res) => {
         if (username_or_email.match(pattern)) {
             loginUsing = "email"
             user = await User.findOne({ email: username_or_email });
-            console.log(user)
         } else {
             loginUsing = "username"
             user = await User.findOne({ username: username_or_email });
