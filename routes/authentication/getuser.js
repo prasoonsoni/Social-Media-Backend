@@ -5,7 +5,7 @@ const User = require('../../models/User')
 
 router.get('/', fetchuser, async (req, res) => {
     try {
-        const user = await User.findOne({ _id: req.user.user_id })
+        const user = await User.findOne({ _id: req.user.user_id }).select('-password')
         res.json({ success: true, user: user })
     } catch (error) {
         res.json({ success: false, message: "Authentication token is not valid." })
