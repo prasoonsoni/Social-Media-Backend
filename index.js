@@ -14,6 +14,7 @@ app.get('/', (req, res) => {
 
 // endpoints for authentication
 app.use('/auth/register', require('./routes/authentication/register'))
+app.use('/auth/login', require('./routes/authentication/login'))
 
 
 app.listen(port, () => {
