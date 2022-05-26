@@ -28,7 +28,7 @@ router.post('/:id', fetchuser, async (req, res) => {
         )
 
         // adding user to likes of post
-        const addToPost = await Posts.updateOne({ user: user_id, 'posts._id': post_id },
+        const addToPost = await Posts.updateOne({ 'posts._id': post_id },
             {
                 $push:
                 {
