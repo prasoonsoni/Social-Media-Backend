@@ -23,6 +23,9 @@ app.use('/update/password', require('./routes/update/updatepassword'))
 app.use('/update/username', require('./routes/update/updateusername'))
 app.use('/update/profile', require('./routes/update/updateprofile'))
 
+// endpoints for posts
+app.use('/post/create', require('./routes/posts/createpost'))
+
 
 app.listen(port, () => {
     console.log(`Social Media Backend listening on http://localhost:${port}`)
