@@ -26,6 +26,7 @@ app.use('/update/profile', require('./routes/update/updateprofile'))
 // endpoints for posts
 app.use('/post/create', require('./routes/posts/createpost'))
 app.use('/post/update', require('./routes/posts/updatepost'))
+app.use('/post/addlike', require('./routes/posts/addlike'))
 
 
 app.listen(port, () => {

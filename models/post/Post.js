@@ -14,11 +14,21 @@ const PostSchema = new Schema(
             default: Date.now
         },
         likes: {
-            type: [{ user_id: mongoose.Schema.Types.ObjectId }],
+            type: [{
+                user_id: {
+                    type: mongoose.Schema.Types.ObjectId,
+                    unique: true
+                }
+            }],
             default: []
         },
         dislikes: {
-            type: [{ user_id: mongoose.Schema.Types.ObjectId }],
+            type: [{
+                user_id: {
+                    type: mongoose.Schema.Types.ObjectId,
+                    unique: true
+                }
+            }],
             default: []
         },
         comments: {
