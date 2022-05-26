@@ -26,6 +26,14 @@ const UserSchema = new Schema({
         type: String,
         default: ""
     },
+    post_liked: {
+        type: [{ post_id: mongoose.Schema.Types.ObjectId }],
+        default: []
+    },
+    post_disliked: {
+        type: [{ post_id: mongoose.Schema.Types.ObjectId }],
+        default: []
+    },
     created_time: {
         type: Date,
         default: Date.now
