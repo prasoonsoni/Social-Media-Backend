@@ -16,6 +16,13 @@ router.post('/:id', fetchuser, async (req, res) => {
             return res.json({ success: false, message: "You have already liked the post" })
         }
 
+        // removing dislike when liking the post
+        const disliked = await User.findOne({ _id: user_id, 'post_disliked.post_id': post_id })
+        if (disliked) {
+            const removeFromUser = await User.updateOne({ _id: user_id }, { $pull: { 'post_disliked': { 'post_id': post_id } } })
+            const removeFromPost = await Posts.updateOne({ 'posts._id': post_id }, { $pull: { 'posts.$.dislikes': { 'user_id': user_id } } })
+        }
+
         // adding post to user's liked posts
         const addToUser = await User.updateOne({ _id: user_id },
             {

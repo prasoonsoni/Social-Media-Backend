@@ -10,10 +10,17 @@ router.post('/:id', fetchuser, async (req, res) => {
         const post_id = new ObjectId(req.params.id)
         const user_id = new ObjectId(req.user.user_id)
 
-        // if post is already liked
+        // if post is already disliked
         const ifAlreadyDisliked = await User.findOne({ _id: user_id, 'post_disliked.post_id': post_id })
         if (ifAlreadyDisliked) {
             return res.json({ success: false, message: "You have already disliked the post" })
+        }
+
+        // if post is liked then removing like.
+        const liked = await User.findOne({ _id: user_id, 'post_liked.post_id': post_id })
+        if (liked) {
+            const removeFromUser = await User.updateOne({ _id: user_id }, { $pull: { 'post_liked': { 'post_id': post_id } } })
+            const removeFromPost = await Posts.updateOne({ 'posts._id': post_id }, { $pull: { 'posts.$.likes': { 'user_id': user_id } } })
         }
 
         // adding post to user's disliked posts
