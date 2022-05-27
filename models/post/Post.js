@@ -18,7 +18,8 @@ const PostSchema = new Schema(
                 user_id: {
                     type: mongoose.Schema.Types.ObjectId,
                     unique: true
-                }
+                },
+                liked_time: { type: Date, default: Date.now }
             }],
             default: []
         },
@@ -27,7 +28,8 @@ const PostSchema = new Schema(
                 user_id: {
                     type: mongoose.Schema.Types.ObjectId,
                     unique: true
-                }
+                },
+                disliked_time: { type: Date, default: Date.now }
             }],
             default: []
         },

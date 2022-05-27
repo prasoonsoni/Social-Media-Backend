@@ -22,7 +22,7 @@ router.post('/:id', fetchuser, async (req, res) => {
                 $push:
                 {
                     post_liked:
-                        { post_id: post_id }
+                        { post_id: post_id, liked_time: Date.now() }
                 }
             }
         )
@@ -33,7 +33,7 @@ router.post('/:id', fetchuser, async (req, res) => {
                 $push:
                 {
                     'posts.$.likes':
-                        { user_id: user_id }
+                        { user_id: user_id, liked_time: Date.now() }
                 }
             }
         )

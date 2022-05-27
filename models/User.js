@@ -27,21 +27,11 @@ const UserSchema = new Schema({
         default: ""
     },
     post_liked: {
-        type: [{
-            post_id: {
-                type: mongoose.Schema.Types.ObjectId,
-                unique: true
-            }
-        }],
+        type: [{ post_id: mongoose.Schema.Types.ObjectId, liked_time: { type: Date, default: Date.now } }],
         default: []
     },
     post_disliked: {
-        type: [{
-            post_id: {
-                type: mongoose.Schema.Types.ObjectId,
-                unique: true
-            }
-        }],
+        type: [{ post_id: mongoose.Schema.Types.ObjectId, disliked_time: { type: Date, default: Date.now } }],
         default: []
     },
     created_time: {

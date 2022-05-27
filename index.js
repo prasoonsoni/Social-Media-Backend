@@ -27,6 +27,7 @@ app.use('/update/profile', require('./routes/update/updateprofile'))
 app.use('/post/create', require('./routes/posts/createpost'))
 app.use('/post/update', require('./routes/posts/updatepost'))
 app.use('/post/addlike', require('./routes/posts/addlike'))
+app.use('/post/deletelike', require('./routes/posts/deletelike'))
 
 
 app.listen(port, () => {
