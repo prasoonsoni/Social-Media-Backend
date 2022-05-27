@@ -21,29 +21,17 @@ router.post('/:id', fetchuser, async (req, res) => {
         if (disliked) {
             const removeFromUser = await User.updateOne({ _id: user_id }, { $pull: { 'post_disliked': { 'post_id': post_id } } })
             const removeFromPost = await Posts.updateOne({ 'posts._id': post_id }, { $pull: { 'posts.$.dislikes': { 'user_id': user_id } } })
+
+            if (!removeFromPost.acknowledged || !removeFromUser.acknowledged) {
+                return res.json({ success: false, message: "Error adding like." })
+            }
         }
 
         // adding post to user's liked posts
-        const addToUser = await User.updateOne({ _id: user_id },
-            {
-                $push:
-                {
-                    post_liked:
-                        { post_id: post_id, liked_time: Date.now() }
-                }
-            }
-        )
+        const addToUser = await User.updateOne({ _id: user_id }, { $push: { post_liked: { post_id: post_id, liked_time: Date.now() } } })
 
         // adding user to likes of post
-        const addToPost = await Posts.updateOne({ 'posts._id': post_id },
-            {
-                $push:
-                {
-                    'posts.$.likes':
-                        { user_id: user_id, liked_time: Date.now() }
-                }
-            }
-        )
+        const addToPost = await Posts.updateOne({ 'posts._id': post_id }, { $push: { 'posts.$.likes': { user_id: user_id, liked_time: Date.now() } } })
 
         if (!addToPost.acknowledged || !addToUser.acknowledged) {
             return res.json({ success: false, message: "Error adding like." })
