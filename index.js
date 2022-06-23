@@ -14,22 +14,20 @@ app.get('/', (req, res) => {
 })
 
 // endpoints for authentication
-app.use('/auth/register', require('./routes/authentication/register'))
-app.use('/auth/login', require('./routes/authentication/login'))
-app.use('/auth/getuser', require('./routes/authentication/getuser'))
+app.use('/auth', require('./routes/userRoutes'))
 
 // endpoints for updating
-app.use('/update/password', require('./routes/update/updatepassword'))
-app.use('/update/username', require('./routes/update/updateusername'))
-app.use('/update/profile', require('./routes/update/updateprofile'))
+app.use('/update/password', require('./routes/update/updatePassword'))
+app.use('/update/username', require('./routes/update/updateUsername'))
+app.use('/update/profile', require('./routes/update/updateProfile'))
 
 // endpoints for posts
-app.use('/post/create', require('./routes/posts/createpost'))
-app.use('/post/update', require('./routes/posts/updatepost'))
-app.use('/post/addlike', require('./routes/posts/addlike'))
-app.use('/post/deletelike', require('./routes/posts/deletelike'))
-app.use('/post/adddislike', require('./routes/posts/adddislike'))
-app.use('/post/deletedislike', require('./routes/posts/deletedislike'))
+app.use('/post/create', require('./routes/posts/createPost'))
+app.use('/post/update', require('./routes/posts/updatePost'))
+app.use('/post/addlike', require('./routes/posts/addLike'))
+app.use('/post/deletelike', require('./routes/posts/deleteLike'))
+app.use('/post/adddislike', require('./routes/posts/addDislike'))
+app.use('/post/deletedislike', require('./routes/posts/deleteDislike'))
 
 
 app.listen(port, () => {
