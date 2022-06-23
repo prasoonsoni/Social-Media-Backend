@@ -17,9 +17,7 @@ app.get('/', (req, res) => {
 app.use('/auth', require('./routes/userRoutes'))
 
 // endpoints for updating
-app.use('/update/password', require('./routes/update/updatePassword'))
-app.use('/update/username', require('./routes/update/updateUsername'))
-app.use('/update/profile', require('./routes/update/updateProfile'))
+app.use('/update', require('./routes/updateRoutes'))
 
 // endpoints for posts
 app.use('/post/create', require('./routes/posts/createPost'))
