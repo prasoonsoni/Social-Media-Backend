@@ -20,12 +20,7 @@ app.use('/auth', require('./routes/userRoutes'))
 app.use('/update', require('./routes/updateRoutes'))
 
 // endpoints for posts
-app.use('/post/create', require('./routes/posts/createPost'))
-app.use('/post/update', require('./routes/posts/updatePost'))
-app.use('/post/addlike', require('./routes/posts/addLike'))
-app.use('/post/deletelike', require('./routes/posts/deleteLike'))
-app.use('/post/adddislike', require('./routes/posts/addDislike'))
-app.use('/post/deletedislike', require('./routes/posts/deleteDislike'))
+app.use('/post', require('./routes/postRoutes'))
 
 
 app.listen(port, () => {
