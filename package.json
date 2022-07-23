@@ -18,6 +18,9 @@
     "mongoose": "^6.3.4"
   },
   "devDependencies": {
-    "nodemon": "^2.0.16"
+    "eslint": "^8.20.0",
+    "eslint-config-prettier": "^8.5.0",
+    "nodemon": "^2.0.16",
+    "prettier": "^2.7.1"
   }
 }
