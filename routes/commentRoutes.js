@@ -5,5 +5,6 @@ const commentController = require('../controllers/commentController')
 
 router.post('/comment/:id', fetchuser, commentController.addComment)
 router.delete('/comment/:id/:comment_id', fetchuser, commentController.deleteComment)
+router.put('/comment/:id/:comment_id', fetchuser, commentController.updateComment)
 
 module.exports = router
