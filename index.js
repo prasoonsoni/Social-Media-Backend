@@ -30,6 +30,10 @@ app.use('/post', require('./routes/dislikeRoutes'))
 
 // endpoints for comments
 app.use('/post', require('./routes/commentRoutes'))
+
+// endpoints for friends
+app.use('/friend', require('./routes/friendRoutes'))
+
 app.listen(port, () => {
     console.log(`Social Media Backend listening on http://localhost:${port}`)
 })
